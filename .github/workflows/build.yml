@@ -11,18 +11,26 @@ jobs:
 
       - name: Setup Cocos Creator
         run: |
-          # Create directory for Cocos Creator
-          mkdir -p ~/CocosCreator
+          # Define the Cocos Creator path
+          COCOS_CREATOR_PATH=~/CocosCreator/CocosCreator
           
-          # Download the Cocos Creator zip file
-          curl -L https://download.cocos.com/CocosCreator/v3.8.1/CocosCreator-v3.8.1-mac-101613.zip -o ~/Downloads/CocosCreator-v3.8.1.zip
-          
-          # Install unzip if not available
-          sudo apt update
-          sudo apt install unzip -y
-          
-          # Unzip the downloaded file
-          unzip ~/Downloads/CocosCreator-v3.8.1.zip -d ~/CocosCreator
+          # Check if Cocos Creator is already installed
+          if [ ! -f "$COCOS_CREATOR_PATH" ]; then
+            echo "Cocos Creator not found. Downloading..."
+            mkdir -p ~/CocosCreator
+            
+            # Download the Cocos Creator zip file
+            curl -L https://download.cocos.com/CocosCreator/v3.8.1/CocosCreator-v3.8.1-mac-101613.zip -o ~/CocosCreator/CocosCreator-v3.8.1.zip
+            
+            # Install unzip if not available
+            sudo apt update
+            sudo apt install unzip -y
+            
+            # Unzip the downloaded file
+            unzip ~/CocosCreator/CocosCreator-v3.8.1.zip -d ~/CocosCreator
+          else
+            echo "Cocos Creator is already installed."
+          fi
 
       - name: Build Web Project
         run: |

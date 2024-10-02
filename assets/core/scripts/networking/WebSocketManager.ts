@@ -23,15 +23,15 @@ export class WebSocketManager extends BaseScript {
         const socket = new MyWebSocket(url);
 
         socket.onopen = () => {
-            Logger.log(this.constructor.name,`${channel} WebSocket connection opened`);
+            Logger.log("this.constructor.name",`${channel} WebSocket connection opened`);
         };
 
         socket.onmessage = (event) => {
-            Logger.log(this.constructor.name,`${channel} message received:`, event.data);
+            Logger.log("this.constructor.name",`${channel} message received:`, event.data);
         };
 
         socket.onclose = () => {
-            Logger.log(this.constructor.name,`${channel} WebSocket connection closed`);
+            Logger.log("this.constructor.name",`${channel} WebSocket connection closed`);
             delete this.connections[channel];
         };
 

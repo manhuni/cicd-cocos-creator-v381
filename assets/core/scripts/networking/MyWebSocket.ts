@@ -14,25 +14,25 @@ export class MyWebSocket extends WebSocket {
     }
 
     private handleOpen(event: Event) {
-        Logger.log(this.constructor.name, "Connected to the server.", event);
+        Logger.log("this.constructor.name", "Connected to the server.", event);
     }
 
     private handleMessage(event: MessageEvent) {
-        Logger.log(this.constructor.name, "Received message: ${event.data}");
+        Logger.log("this.constructor.name", "Received message: ${event.data}");
     }
 
     private handleError(event: Event) {
-        Logger.log(this.constructor.name, "WebSocket error:", event);
+        Logger.log("this.constructor.name", "WebSocket error:", event);
     }
 
     private handleClose(event: CloseEvent) {
-        Logger.log(this.constructor.name, "Disconnected from the server.", event);
+        Logger.log("this.constructor.name", "Disconnected from the server.", event);
         // Optionally implement reconnection logic here
     }
 
     // Additional method to send JSON data
     public sendJson(data: object) {
         this.send(JSON.stringify(data));
-        Logger.log(this.constructor.name, "Sent JSON:", data);
+        Logger.log("this.constructor.name", "Sent JSON:", data);
     }
 }

@@ -23,7 +23,7 @@ export class TestButton extends Component {
     onClick() {
         this.tokenLbl.string = "";
         ApiManager.I.getConfig().then((data) => {
-            Logger.log(this.constructor.name, "onClick", JSON.stringify(data));
+            Logger.log("this.constructor.name", "onClick", JSON.stringify(data));
             let params = {
                 "username": "manhna3",
                 "password": "123123",
@@ -36,16 +36,16 @@ export class TestButton extends Component {
                 let token = data.token;
                 // Check if the token is empty
                 if (!token || token.trim() === '') {
-                    Logger.error(this.constructor.name, 'Token is empty.');
+                    Logger.error("this.constructor.name", 'Token is empty.');
                     return false;
                 }
                 TokenManager.I.setToken(token);
                 this.tokenLbl.string = TokenManager.I.getToken();
             }).catch((error) => {
-                Logger.error(this.constructor.name, error);
+                Logger.error("this.constructor.name", error);
             });
         }).catch((err) => {
-            Logger.error(this.constructor.name, err);
+            Logger.error("this.constructor.name", err);
         })
     }
 }

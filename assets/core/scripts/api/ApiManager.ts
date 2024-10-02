@@ -21,7 +21,7 @@ export class ApiManager extends BaseScript {
     getConfig(...args): Promise<any> {
         return new Promise((resolve, reject) => {
             try {
-                Logger.log(this.constructor.name, `getConfig`);
+                Logger.log("this.constructor.name", `getConfig`);
                 if (this.game_config) {
                     resolve(this.game_config);
                 } else {
@@ -34,16 +34,16 @@ export class ApiManager extends BaseScript {
                             // You can now use the fetched data for your game;
                             this.game_config = JSON.parse(data);
                             ApiConfig.loadConfig(JSON.parse(data));
-                            Logger.log(this.constructor.name, `data`, data);
+                            Logger.log("this.constructor.name", `data`, data);
                             resolve(JSON.parse(data));
                         })
                         .catch((error) => {
-                            Logger.error(this.constructor.name, `data error`, error);
+                            Logger.error("this.constructor.name", `data error`, error);
                             reject(error);
                         });
                 }
             } catch (error) {
-                Logger.error(this.constructor.name, `getConfig`, error);
+                Logger.error("this.constructor.name", `getConfig`, error);
                 reject(error);
             }
         })

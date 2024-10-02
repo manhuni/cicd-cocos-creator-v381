@@ -35,7 +35,7 @@ export class ResourceLoaderManager extends BaseScript {
     }
     constructor(...args) {
         super(...args);
-        Logger.log(this.constructor.name, "Initialized component.");
+        Logger.log("this.constructor.name", "Initialized component.");
         this.audioClipLoader = new AudioClipLoader();
         this.bitmapFontLoader = new BitmapFontLoader();
         this.fontLoader = new FontLoader();

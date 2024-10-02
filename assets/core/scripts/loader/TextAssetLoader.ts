@@ -8,7 +8,7 @@ const { ccclass, property } = _decorator;
 export class TextAssetLoader extends LoaderBase {
     constructor(...args) {
         super(...args);
-        Logger.log(this.constructor.name, "Initialized component.");
+        Logger.log("this.constructor.name", "Initialized component.");
     }
 }
 

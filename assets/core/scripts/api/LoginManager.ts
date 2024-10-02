@@ -22,14 +22,14 @@ export class LoginManager extends BaseScript {
                     "firebase_token": args[3],
                 }
                 HttpManager.I.post(ApiConfig.LOGIN_API, params).then((response) => {
-                    Logger.log(this.constructor.name, 'login', response);
+                    Logger.log("this.constructor.name", 'login', response);
                     resolve(JSON.parse(response));
                 }).catch((error) => {
-                    Logger.error(this.constructor.name, 'login', error);
+                    Logger.error("this.constructor.name", 'login', error);
                     reject(error);
                 });
             } catch (error) {
-                Logger.error(this.constructor.name, 'login', error);
+                Logger.error("this.constructor.name", 'login', error);
                 reject(error);
             }
         })

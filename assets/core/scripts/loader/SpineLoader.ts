@@ -8,7 +8,7 @@ const { ccclass, property } = _decorator;
 export class SpineLoader  extends LoaderBase{
     constructor(...args) {
         super(...args);
-        Logger.log(this.constructor.name, "Initialized component.");
+        Logger.log("this.constructor.name", "Initialized component.");
     }
 }
 

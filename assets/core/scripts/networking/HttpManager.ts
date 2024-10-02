@@ -30,19 +30,19 @@ export class HttpManager {
                 } else {
                     retUrl += '?' + this.createQueryString(params);
                 }
-                Logger.log(this.constructor.name, 'get retUrl', retUrl);
+                Logger.log("this.constructor.name", 'get retUrl', retUrl);
                 // Create a new XMLHttpRequest for GET
                 const xhr = new XMLHttpRequest();
                 xhr.open("GET", retUrl, true);
                 xhr.setRequestHeader("Content-Type", "application/json");
                 xhr.onreadystatechange = () => {
-                    Logger.log(this.constructor.name, 'get xhr.readyState', xhr.readyState);
-                    Logger.log(this.constructor.name, 'get xhr.status', xhr.status);
-                    Logger.log(this.constructor.name, 'get xhr.responseText', xhr.responseText);  
+                    Logger.log("this.constructor.name", 'get xhr.readyState', xhr.readyState);
+                    Logger.log("this.constructor.name", 'get xhr.status', xhr.status);
+                    Logger.log("this.constructor.name", 'get xhr.responseText', xhr.responseText);  
                     if (xhr.readyState === 4) { 
                         if (xhr.status >= 200 && xhr.status <= 207) {
                             let response = this.createResponseText(xhr.responseText);
-                            Logger.log(this.constructor.name, 'response success', response);
+                            Logger.log("this.constructor.name", 'response success', response);
                             resolve(response);
                         } else {
                             reject(`GET request failed: ${xhr.status} ${xhr.statusText}`);
@@ -52,7 +52,7 @@ export class HttpManager {
                 // Send the request
                 xhr.send();
             } catch (error) {
-                Logger.error(this.constructor.name, 'get', error);
+                Logger.error("this.constructor.name", 'get', error);
                 reject(error);
             }
         });
@@ -69,19 +69,19 @@ export class HttpManager {
                 } else {
                     retUrl += '?' + this.createQueryString(params);
                 }
-                Logger.log(this.constructor.name, 'post retUrl', retUrl);
+                Logger.log("this.constructor.name", 'post retUrl', retUrl);
                 // Create a new XMLHttpRequest for POST
                 const xhr = new XMLHttpRequest();
                 xhr.open("POST", retUrl, true);
                 xhr.setRequestHeader("Content-Type", "application/json");
                 xhr.onreadystatechange = () => {
-                    Logger.log(this.constructor.name, 'post xhr.readyState', xhr.readyState);
-                    Logger.log(this.constructor.name, 'post xhr.status', xhr.status);
-                    Logger.log(this.constructor.name, 'post xhr.responseText', xhr.responseText); 
+                    Logger.log("this.constructor.name", 'post xhr.readyState', xhr.readyState);
+                    Logger.log("this.constructor.name", 'post xhr.status', xhr.status);
+                    Logger.log("this.constructor.name", 'post xhr.responseText', xhr.responseText); 
                     if (xhr.readyState === 4) {
                         if (xhr.status >= 200 && xhr.status <= 207) {
                             let response = this.createResponseText(xhr.responseText);
-                            Logger.log(this.constructor.name, 'response success', response);
+                            Logger.log("this.constructor.name", 'response success', response);
                             resolve(response);
                         } else {
                             reject(`POST request failed: ${xhr.status} ${xhr.statusText}`);
@@ -92,7 +92,7 @@ export class HttpManager {
                 // Send the JSON-encoded body
                 xhr.send(JSON.stringify(body));
             } catch (error) {
-                Logger.error(this.constructor.name, 'post', error);
+                Logger.error("this.constructor.name", 'post', error);
                 reject(error);
             }
         });

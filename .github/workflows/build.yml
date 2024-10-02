@@ -32,12 +32,9 @@ jobs:
             echo "Cocos Creator is already installed."
           fi
 
-      - name: Build Web Project
-        run: |
-          # Build the project for web-mobile platform
-          ~/CocosCreator/CocosCreator --path . --build "platform=web-mobile;debug=true"
-
-      - name: Build Android Project
-        run: |
-          # Build the project for android platform
-          ~/CocosCreator/CocosCreator --path . --build "platform=android;debug=true"
+          - name: Build Web Project
+          run: |
+            # Build the project for web-mobile platform
+            "$COCOS_CREATOR_EXECUTABLE" --path . --build "platform=web-mobile;debug=true"
+  
+        

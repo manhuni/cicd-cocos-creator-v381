@@ -44,5 +44,5 @@ jobs:
           export PATH="/usr/local/opt/openjdk@11/bin:$PATH"
           
           # Build the project for web-mobile platform
-          /Applications/CocosCreator.app/Contents/MacOS/CocosCreator --project . --build "platform=web-mobile;debug=true"
-        shell: bash
+          /Applications/CocosCreator.app/Contents/MacOS/CocosCreator --project . --build "platform=web-mobile;debug=true" configPath ./buildconfig/web-mobile/buildConfig_web-mobile.json
+        shell: bash 

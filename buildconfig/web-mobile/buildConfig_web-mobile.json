@@ -1,0 +1,59 @@
+{
+  "name": "poker3d_client_portrait",
+  "server": "",
+  "platform": "web-mobile",
+  "buildPath": "project://build",
+  "debug": false,
+  "md5Cache": true,
+  "skipCompressTexture": false,
+  "sourceMaps": false,
+  "polyfills": {
+    "asyncFunctions": true
+  },
+  "experimentalEraseModules": false,
+  "startSceneAssetBundle": false,
+  "bundleConfigs": [],
+  "useBuiltinServer": false,
+  "mainBundleIsRemote": false,
+  "mainBundleCompressionType": "merge_dep",
+  "useSplashScreen": false,
+  "bundleCommonChunk": false,
+  "packAutoAtlas": true,
+  "startScene": "95fe0d0e-9a48-468a-8ea2-4f25255299c2",
+  "outputName": "web-mobile",
+  "taskName": "web-mobile",
+  "scenes": [
+    {
+      "url": "db://assets/TEST/scene.scene",
+      "uuid": "95fe0d0e-9a48-468a-8ea2-4f25255299c2"
+    }
+  ],
+  "packages": {
+    "engine": {
+      "cleanupImageCache": "inheritProjectSetting",
+      "__version__": "1.0.7"
+    },
+    "adsense-h5g-plugin": {
+      "enableAdsense": false,
+      "enableTestAd": false,
+      "__version__": "1.0.1",
+      "AFPHostPropertyCode": "ca-host-pub-5396158963872751",
+      "AFPHostDomain": "douyougame.com",
+      "otherAFPHostPropertyCode": "",
+      "otherAFPDomain": ""
+    },
+    "web-mobile": {
+      "orientation": "portrait",
+      "embedWebDebugger": false,
+      "cullEngineAsmJsModule": false,
+      "__version__": "1.0.1"
+    },
+    "cocos-service": {
+      "configID": "b7f7ec",
+      "services": []
+    }
+  },
+  "__version__": "1.3.7",
+  "buildMode": "normal",
+  "logDest": "project://temp/builder/log/web-mobile2-10-2024 14-37.log"
+}

@@ -1,0 +1,15 @@
+{
+  "name": "poker3d_client_portrait",
+  "uuid": "e48e3b2d-41ab-4662-be56-f08228cc7031",
+  "creator": {
+    "version": "3.8.1"
+  },
+  "dependencies": {
+    "crypto-js": "^3.3.0",
+    "url-search-params-polyfill": "^8.2.5"
+  },
+  "devDependencies": {
+    "@types/crypto-js": "^4.2.2",
+    "@types/node": "^22.7.4"
+  }
+}

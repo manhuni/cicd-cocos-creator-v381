@@ -13,29 +13,26 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Install Java
+        run: |
+          brew install openjdk@11
+          echo 'export PATH="/usr/local/opt/openjdk@11/bin:$PATH"' >> $GITHUB_ENV
+          brew link --force --overwrite openjdk@11
+
       - name: Setup Cocos Creator
         run: |
           # Define the Cocos Creator directory and executable
           COCOS_CREATOR_DIR=~/CocosCreator
-          COCOS_CREATOR_EXECUTABLE="$COCOS_CREATOR_DIR/CocosCreator"
+          COCOS_CREATOR_EXECUTABLE="$COCOS_CREATOR_DIR/CocosCreator.app/Contents/MacOS/CocosCreator"
 
-          # Check if Cocos Creator is already installed
-          if [ ! -f "$COCOS_CREATOR_EXECUTABLE" ]; then
-            echo "Cocos Creator not found. Downloading..."
-            mkdir -p "$COCOS_CREATOR_DIR"
-            
-            # Download the Cocos Creator zip file
-            curl -L https://download.cocos.com/CocosCreator/v3.8.1/CocosCreator-v3.8.1-mac-101613.zip -o "$COCOS_CREATOR_DIR/CocosCreator-v3.8.1.zip"
-            
-            # Install unzip if not available
-            sudo apt update
-            sudo apt install unzip -y
-            
-            # Unzip the downloaded file
-            unzip "$COCOS_CREATOR_DIR/CocosCreator-v3.8.1.zip" -d "$COCOS_CREATOR_DIR"
-          else
-            echo "Cocos Creator is already installed."
-          fi
+          echo "Downloading Cocos Creator..."
+          mkdir -p "$COCOS_CREATOR_DIR"
+          
+          # Download the Cocos Creator zip file
+          curl -L https://download.cocos.com/CocosCreator/v3.8.1/CocosCreator-v3.8.1-mac-101613.zip -o "$COCOS_CREATOR_DIR/CocosCreator-v3.8.1.zip"
+          
+          # Unzip the downloaded file
+          unzip "$COCOS_CREATOR_DIR/CocosCreator-v3.8.1.zip" -d "$COCOS_CREATOR_DIR"
 
       - name: Build Web Project
         run: |

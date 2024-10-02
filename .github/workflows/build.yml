@@ -36,7 +36,7 @@ jobs:
           export PATH="/usr/local/opt/openjdk@11/bin:$PATH"
           
           # Build the project for web-mobile platform
-          /Applications/CocosCreator.app/Contents/MacOS/CocosCreator --path ../ --build "platform=web-mobile;debug=true"
+          /Applications/CocosCreator.app/Contents/MacOS/CocosCreator --project . --build "platform=web-mobile;debug=true"
         shell: bash
 
       - name: Build Android Project
@@ -45,5 +45,5 @@ jobs:
           export PATH="/usr/local/opt/openjdk@11/bin:$PATH"
           
           # Build the project for android platform
-          /Applications/CocosCreator.app/Contents/MacOS/CocosCreator --path ../ --build "platform=android;debug=true"
+          /Applications/CocosCreator.app/Contents/MacOS/CocosCreator --project . --build "platform=android;debug=true"
         shell: bash

@@ -20,7 +20,7 @@ jobs:
 
       - name: Install npm dependencies
         run: npm install
-        
+
       - name: Install Java
         run: |
           brew install openjdk@11
@@ -45,13 +45,4 @@ jobs:
           
           # Build the project for web-mobile platform
           /Applications/CocosCreator.app/Contents/MacOS/CocosCreator --project . --build "platform=web-mobile;debug=true"
-        shell: bash
-
-      - name: Build Android Project
-        run: |
-          # Add Java to PATH
-          export PATH="/usr/local/opt/openjdk@11/bin:$PATH"
-          
-          # Build the project for android platform
-          /Applications/CocosCreator.app/Contents/MacOS/CocosCreator --project . --build "platform=android;debug=true"
         shell: bash

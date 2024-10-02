@@ -1,8 +1,12 @@
-name: GitHub Actions Demo
-run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
-on: [push]
+name: Build Cocos Creator Project
+
+on:
+  push:
+    branches:
+      - main  # Adjust to your preferred branch
+
 jobs:
- build:
+  build:
     runs-on: ubuntu-latest
 
     steps:
@@ -11,30 +15,34 @@ jobs:
 
       - name: Setup Cocos Creator
         run: |
-          # Define the Cocos Creator path
-          COCOS_CREATOR_PATH=~/CocosCreator/CocosCreator
-          
+          # Define the Cocos Creator directory and executable
+          COCOS_CREATOR_DIR=~/CocosCreator
+          COCOS_CREATOR_EXECUTABLE="$COCOS_CREATOR_DIR/CocosCreator"
+
           # Check if Cocos Creator is already installed
-          if [ ! -f "$COCOS_CREATOR_PATH" ]; then
+          if [ ! -f "$COCOS_CREATOR_EXECUTABLE" ]; then
             echo "Cocos Creator not found. Downloading..."
-            mkdir -p ~/CocosCreator
+            mkdir -p "$COCOS_CREATOR_DIR"
             
             # Download the Cocos Creator zip file
-            curl -L https://download.cocos.com/CocosCreator/v3.8.1/CocosCreator-v3.8.1-mac-101613.zip -o ~/CocosCreator/CocosCreator-v3.8.1.zip
+            curl -L https://download.cocos.com/CocosCreator/v3.8.1/CocosCreator-v3.8.1-mac-101613.zip -o "$COCOS_CREATOR_DIR/CocosCreator-v3.8.1.zip"
             
             # Install unzip if not available
             sudo apt update
             sudo apt install unzip -y
             
             # Unzip the downloaded file
-            unzip ~/CocosCreator/CocosCreator-v3.8.1.zip -d ~/CocosCreator
+            unzip "$COCOS_CREATOR_DIR/CocosCreator-v3.8.1.zip" -d "$COCOS_CREATOR_DIR"
           else
             echo "Cocos Creator is already installed."
           fi
 
-          - name: Build Web Project
-          run: |
-            # Build the project for web-mobile platform
-            "$COCOS_CREATOR_EXECUTABLE" --path . --build "platform=web-mobile;debug=true"
-  
-        
+      - name: Build Web Project
+        run: |
+          # Build the project for web-mobile platform
+          "$COCOS_CREATOR_EXECUTABLE" --path . --build "platform=web-mobile;debug=true"
+
+      - name: Build Android Project
+        run: |
+          # Build the project for android platform
+          "$COCOS_CREATOR_EXECUTABLE" --path . --build "platform=android;debug=true"
